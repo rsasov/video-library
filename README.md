@@ -7,4 +7,11 @@ The charging of the rented movies is calculated depending on the renting days an
 
 ![video-library](/images/video-library.png)
 
-### Compilation and running the app
+### Starting up the application
+
+To start up the application use the **make** command in the root directory of the project.
+Other supported commands :
+- make build
+- make compile
+- make run
+- make clean
