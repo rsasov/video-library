@@ -8,10 +8,10 @@ SRC      :=                      \
 
 all: build compile run
 
-compile:
+compile: build
 	g++ -o $(BUILD)/$(TARGET) $(INCLUDE) $(SRC)
 
-run:
+run: build compile
 	./$(BUILD)/$(TARGET)
 
 build:
