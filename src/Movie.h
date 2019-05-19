@@ -13,21 +13,21 @@ class Movie
 private:
 	std::string title; //Movie title
 	float price; //Movie price
-	NewReleasePrice priceN; //Price and points generator for type of movie : NEW_RELEASE
-	RegularPrice priceR; //Price and points generator for type of movie : REGULAR
-	ChildrenPrice priceC; //Price and points generator for type of movie : CHILDREN
-	MovieType movieCode; //The type of movie (Definition of Type in movieEnum.h)
+	NewReleasePrice priceNewRelease; //Price and points generator for type of movie : NEW_RELEASE
+	RegularPrice priceRegular; //Price and points generator for type of movie : REGULAR
+	ChildrenPrice priceChildren; //Price and points generator for type of movie : CHILDREN
+	MovieType movieType; //The type of movie (Definition of Type in movieEnum.h)
 
 public:
 	Movie();
-	Movie(std::string title, MovieType movieCode);
+	Movie(std::string title, MovieType movieType);
 	virtual ~Movie();
-	std::string getTitle(void);
-	float getPrice(void);
-	float getMovieCode(void);
+	std::string getTitle();
+	float getPrice();
+	float getMovieType();
 	float getCharge(int days);
 	int getFrequentRenterPoints(int days);
-	void setPriceCode(MovieType movieCode);
+	void setPriceCode(MovieType movieType);
 	void operator=(const Movie &M);
 };
 

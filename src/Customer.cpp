@@ -8,7 +8,7 @@ Customer::Customer()
 Customer::Customer(std::string name)
 {
 	//Constructor
-	this->nameCus=name;
+	customerName = name;
 }
 
 Customer::~Customer()
@@ -16,19 +16,19 @@ Customer::~Customer()
 	//Default destructor
 }
 
-void Customer::addRental(Rental rent)
+void Customer::addRental(Rental rental)
 {
 	//Method for adding a rental for customer
-	movieList.push_back(rent);
+	movieRentals.push_back(rental);
 }
 
 float Customer::getTotalCharge()
 {
 	//Method for calculating the total charge of the order
-	float totalCharge=0.0;
-	for(std::vector<Rental>::iterator i=movieList.begin();i!=movieList.end();i++)
+	float totalCharge = 0.0;
+	for(std::vector<Rental>::iterator i = movieRentals.begin(); i != movieRentals.end(); i++)
 	{
-		totalCharge+= (*i).getCharge();
+		totalCharge += (*i).getCharge();
 	}
 	return totalCharge;
 }
@@ -36,23 +36,22 @@ float Customer::getTotalCharge()
 int Customer::getTotalFrequentRenterPoints()
 {
 	//Method for calculating the total amount of points for the order
-	float totalPoints=0.0;
-	for(std::vector<Rental>::iterator i=movieList.begin();i!=movieList.end();i++)
+	float totalPoints = 0.0;
+	for(std::vector<Rental>::iterator i = movieRentals.begin(); i != movieRentals.end(); i++)
 	{
-		totalPoints+= (*i).getFrequentRenterPoints();
+		totalPoints += (*i).getFrequentRenterPoints();
 	}
 	return totalPoints;
 }
 
-void Customer::Statement()
+void Customer::statement()
 {
 	//Method for printing out a review of the order
-	std::cout<<"\n\n\nRental Record for "<<nameCus<<std::endl;
-	for(std::vector<Rental>::iterator i = movieList.begin(); i != movieList.end(); i++)
+	std::cout << "\nRental Record for " << customerName << std::endl;
+	for(std::vector<Rental>::iterator i = movieRentals.begin(); i != movieRentals.end(); i++)
 	{
-		std::cout<<"\t"<<(*i).getTitle()<<"\t"<<(*i).getCharge();
-		std::cout<<std::endl;
+		std::cout << (*i).getTitle() << "- " << (*i).getCharge() << "$" << std::endl;
 	}
-	std::cout<<"Amount owed is "<< this->getTotalCharge() <<std::endl;
-	std::cout<<"You earned "<< this->getTotalFrequentRenterPoints() << " frequent renter points" << std::endl;
+	std::cout << "Total amount owed: " << getTotalCharge() << "$" << std::endl;
+	std::cout << "You earned " << getTotalFrequentRenterPoints() << " frequent renter points" << std::endl;
 }

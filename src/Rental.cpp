@@ -3,14 +3,14 @@
 Rental::Rental()
 {
 	//Default constructor
-	daysRented=0;
+	daysRented = 0;
 }
 
 Rental::Rental(Movie movie, int days)
 {
 	//Constructor
-	this->mov=movie;
-	this->daysRented=days;
+	this->movie = movie;
+	daysRented = days;
 }
 
 Rental::~Rental()
@@ -18,32 +18,32 @@ Rental::~Rental()
 	//Default destructor
 }
 
-float Rental::getCharge(void)
+float Rental::getCharge()
 {
 	//Getter for price generation of movie object member in class rental
-	if(daysRented<0)
+	if(daysRented <= 0)
 	{
-		std::cout<< "Not valid input for days at Rental_getCharge" << std::endl;
+		std::cout << "Not valid input for days at Rental_getCharge" << std::endl;
 		return 0.0;
 	}
 	else
-		return mov.getCharge(daysRented);
+		return movie.getCharge(daysRented);
 }
 
-int Rental::getFrequentRenterPoints(void)
+int Rental::getFrequentRenterPoints()
 {
 	//Getter for points generation of movie object member in class rental
-	if(daysRented<0)
+	if(daysRented <= 0)
 	{
-		std::cout<< "Not valid input for days at Rental_getFrequentRentalPoints" << std::endl;
+		std::cout << "Not valid input for days at Rental_getFrequentRentalPoints" << std::endl;
 		return 0;
 	}
 	else
-		return mov.getFrequentRenterPoints(daysRented);
+		return movie.getFrequentRenterPoints(daysRented);
 }
 
-std::string Rental::getTitle(void)
+std::string Rental::getTitle()
 {
 	//Getter for movie object member in class rental : title
-	return this->mov.getTitle();
+	return movie.getTitle();
 }

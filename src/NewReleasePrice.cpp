@@ -19,5 +19,5 @@ float NewReleasePrice::getCharge(int days)
 int NewReleasePrice::getFrequentRenterPoints(int days)
 {
 	//Getter for points generation of movie type NEW_RELEASE
-	return (days>1)?2:1;
+	return (days > 1) ? 2 : 1;
 }

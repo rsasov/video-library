@@ -7,14 +7,14 @@
 class Customer
 {
 private:
-	std::string nameCus; //Customer's name
-	std::vector<Rental>movieList; //Vector of Rentals
+	std::string customerName; //Customer's name
+	std::vector<Rental> movieRentals; //Vector of Rentals
 public:
 	Customer();
 	Customer(std::string name);
 	virtual ~Customer();
-	void addRental(Rental rent);
-	void Statement();
+	void addRental(Rental rental);
+	void statement();
 	float getTotalCharge();
 	int getTotalFrequentRenterPoints();
 };
